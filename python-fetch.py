@@ -46,9 +46,6 @@ hostname = socket.gethostname()
 #4. Welcome, Underline, Suffix Config
 # 4.1. Welcome
 welcome_p = [ username, "@", hostname ]
-welcome_p[0] = username
-welcome_p[1] = "@"
-welcome_p[2] = hostname
 welcome_sum = "".join(map(str, welcome_p))
 
 welcome = ""
