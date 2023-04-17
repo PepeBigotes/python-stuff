@@ -12,12 +12,12 @@
 # 4.3. Suffix
 #5. Time, Date , Battery, IPs
 #6. Disk Class
-
+#===============================================================#
 
 
 #1. Imports (aka Dependencies)
-import colored #pip install colored
-import requests #pip install requests
+import colored #pip3 install colored
+import requests #pip3 install requests
 import time
 import datetime
 import string
@@ -61,7 +61,7 @@ default_suffix = ": "
 
 
 #5. Time, Date , Battery, IPs
-#Hour/Minute
+#Hour:Minute
 time_hm = time.strftime("%H:%M")
 
 datetimenow = datetime.datetime.now()
@@ -106,7 +106,7 @@ info("Uptime" , uptime)
 info("Time" , time_hm)
 info("Date" , date_dmy)
 #info("Battery", percent + '%' + plugged)
-info("Disk" ,  str(disk.used_gib) + "/" + str(disk.total_gib) + " GiB (" + str(disk.used_percert) + "%)")
+info("Disk" ,  f"{str(disk.used_gib)}/{str(disk.total_gib)} GiB ({str(disk.used_percert)}%)")
 info("Local IP" , local_ip)
 #info("Public IP" , public_ip)
 info()
