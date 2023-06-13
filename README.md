@@ -5,7 +5,6 @@
 </div>
 
 ## List of contents:
-  - <b>`python-fetch.py`</b> : My attempt to replicate the <a href="https://github.com/dylanaraps/neofetch">neofetch</a> tool in python.  
- The goal is to keep it simple, easy to customize and cool.  
-  - <b>`modmenu-template`</b> : A simple modmenu powered in pygame.  
-  It's WIP at the moment, I will make a functional modmenu whenever I get to it.
+  - <b>`python-fetch.py`</b> : Legacy/one-script version of my [pepefetch](https://github.com/PepeBigotes/pepefetch) project. My first ever script in python btw.  
+  - <b>`modmenu-template`</b> : A simple modmenu UI powered in pygame.  
+  I started this in a impulsive manner and I don't really plan to do anything with it in the near future.
