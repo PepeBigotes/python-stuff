@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 #Created by PepeBigotes
-#  Our teacher was explaining how to convert decimal numbers to binary,
-#  I got bored and decided to make a script to do it for me instead.
 
 input = 32
 bits = 8
