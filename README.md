@@ -11,3 +11,5 @@
   - <b>`decimal_2_binary`</b> : Converts a decimal number to binary  
   Our teacher was explaining how to convert decimal numbers to binary,  
   I got bored and decided to make a script to do it for me instead.
+  - <b>`randomness-test`</b> : A script to test the pseudorandomness of the 'random' module.  
+  Decided to leave it here because the results are interesting
