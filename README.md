@@ -13,3 +13,7 @@
   I got bored and decided to make a script to do it for me instead.
   - <b>`randomness-test`</b> : A script to test the pseudorandomness of the 'random' module.  
   Decided to leave it here because the results are interesting
+  - <b>`binary-junk`</b> : Prints random binary numbers  
+  Once again I coded something useless instead of paying attention in class.
+  - <b>`hex-junk`</b> : Prints random hexadecimal numbers  
+  Evolution of the <b>binary-junk</b> script. You could use this as a "secure password generator" if you wanted to (not recommended, it's not very secure)
