@@ -17,3 +17,6 @@
   Once again I coded something useless instead of paying attention in class.
   - <b>`hex-junk`</b> : Prints random hexadecimal numbers  
   Evolution of the <b>binary-junk</b> script. You could use this as a "secure password generator" if you wanted to (not recommended, it's not very secure)
+  - <b>`net-slow`</b> : Attempts to slow the network with excessive traffic  
+  **Beware that you can not stop this script once you start it.**  
+  Can also be used as a DoS or DDoS tool. Created for educational purposes only
