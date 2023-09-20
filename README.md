@@ -20,3 +20,6 @@
   - <b>`net-slow`</b> : Attempts to slow the network with excessive traffic  
   **Beware that you can not stop this script once you start it.**  
   Can also be used as a DoS or DDoS tool. Created for educational purposes only
+  - <b>`ping-sweep`</b> : Detects active hosts in the network by using pings  
+  **Beware that you can not stop this script once you start it.**  
+  At the moment it only scans for the 255.255.255.0 subnet mask.
