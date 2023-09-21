@@ -26,12 +26,12 @@ target = target[0:dot + 1]
 def ping(x):
     global target
     host = target + str(x)
-    response = os.system(f"ping {argument} -w 1000 {host} {nuller}")
- 
-    if response == 0:
-        print(host)
-#    else:
-#        print(host + " is down")
+    for i in range(0, 5):
+        response = os.system(f"ping {argument} -w 1000 {host} {nuller}")
+        time.sleep(1)
+        if response == 0:
+            print(host)
+            return
         
 
 for y in range(1, 255):
