@@ -22,3 +22,5 @@
   Can also be used as a DoS or DDoS tool. Created for educational purposes only
   - <b>`ping-sweep`</b> : Detects active hosts in the network by using pings  
   At the moment it only scans for the 255.255.255.0 subnet mask.
+  - <b>`hangman`</b> : Text based hangman game  
+  I also made this one while not listening in class
