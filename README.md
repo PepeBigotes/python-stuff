@@ -24,5 +24,7 @@
     >At the moment it only scans for the 255.255.255.0 subnet mask.
   - <b>`hangman`</b> : Text based hangman game  
     >I also made this one while not listening in class.
-  - <b>`byte-converter`</b> : Converts MiB to MB, GB to GiB, and so on...  
-    >I also made this one while not listening in class.
+  - <b>`byte-converter`</b> : Converts MiB to MB, GB to GiB, and so on.  
+    >Why are we doing this manually in our IT class anyways?
+  - <b>`byte-converter-2`</b> : A class to convert bytes-bilibytes easily  
+    >Supports from bits to petabytes
