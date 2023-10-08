@@ -54,5 +54,5 @@ while True:
     print()
     
 #Import to use in your own scripts:
-execfile("/path/to/file/byte-converter-2.py")
+execfile("/path/to/file/byte-converter.py")
 """
