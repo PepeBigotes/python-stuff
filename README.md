@@ -27,4 +27,4 @@
   - <b>`alpha-byte-converter`</b> : Prompt that converts MiB to MB, GB to GiB, and so on.  
     >Why are we doing this manually in our IT class anyways?
   - <b>`byte-converter`</b> : A class to convert units of data storage easily  
-    >Supports from Bits to PebiBytes
+    >Supports units from Bits to pebibytes
