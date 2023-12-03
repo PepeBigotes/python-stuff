@@ -28,3 +28,5 @@
     >Why are we doing this manually in our IT class anyways?
   - <b>`byte-converter`</b> : A class to convert units of data storage easily  
     >Supports units from Bits to pebibytes
+  - <b>`scapy-test`</b> : Some functions using <a href="https://github.com/secdev/scapy">Scapy</a>  
+    >Includes: Fake packet creator, DNS query creator, MAC vendor lookup, ARP ping-sweep. Created for educational purposes only.
