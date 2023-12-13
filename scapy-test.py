@@ -14,13 +14,13 @@ def fake_packet(ip_src= "192.168.0.1", ip_dst= "192.168.0.255", mac_src=RandMAC(
 #mypacket = fake_packet()
 #sendp(mypacket, count=100)
 
-def dns_query(ip_dst, query):
-    ip = IP(ttl=64, dst=ip_dst)
+def dns_query(query, ip_dst="8.8.8.8"):
+    ip = IP(dst=ip_dst)
     udp = UDP(dport=53)
     dns = DNS(rd=1, qd=DNSQR(qname=query))
     answer = sr1(ip/udp/dns, verbose=0)[DNS].summary()
     return answer.split('"')[1]
-#print(dns_query("8.8.8.8", "google.com"))
+#print(dns_query("google.com"))
 
 def mac_vendor(mac_address):
     url = "https://api.macvendors.com/"
