@@ -324,17 +324,21 @@ while lives > 0:
    
     #print(f"{lives}/7 attempts left")
     print("Type a letter:")
-    i_letter = input("> ")
+    try:
+        i_letter = input("> ").lower()
+    except KeyboardInterrupt:
+        print("KeyboardInterrupt, stopping script...")
+        exit()
    
     if type(i_letter) != str:
         cls()
-        print("Invalid input, you need to type one lowercase letter")
+        print("Invalid input, you need to type a letter (symbols, numbers, and other languages are invalid)")
         input("Press ENTER to continue")
         continue
    
     if not i_letter in letters:
         cls()
-        print("Your letter is not in the list of letters, Please use lowercase")
+        print("Your letter is not valid, perphaps you are not typing an english letter?")
         input("Press ENTER to continue")
         continue
    
@@ -346,7 +350,7 @@ while lives > 0:
    
     if i_letter in guessed_letters or i_letter in wasted_letters:
         cls()
-        print("You already guessed this letter, try another!")
+        print(f"You already tried the letter '{i_letter}', try another!")
         input("Press ENTER to continue")
         continue
    
