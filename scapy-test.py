@@ -32,6 +32,12 @@ def mac_vendor(mac_address):
 def arp_discover(dst="192.168.0.0/24"):
     ether = Ether(dst="ff:ff:ff:ff:ff:ff")
     arp = ARP(pdst=dst)
-    answer, no_answer = srp(ether/arp, timeout=5, verbose=1, inter=0.03)
-    answer.summary(lambda s, r: r.sprintf(f"%Ether.src%  %ARP.psrc% {mac_vendor(r.sprintf('%Ether.src%') )}") )
+    answers, no_answers = srp(ether/arp, timeout=5, verbose=1, inter=0.03)
+    for ans in answers:
+        pkt = ans.answer
+        mac = pkt[Ether].src
+        ip = pkt[ARP].psrc
+        fill = " " * (15 - len(ip))
+        vendor = mac_vendor(mac)
+        print(f"{mac}  {ip}{fill}  {vendor}")
 #arp_discover("192.168.0.0/24")
