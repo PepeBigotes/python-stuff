@@ -7,19 +7,24 @@ from time import sleep
 
 
 def fake_packet(ip_src= "192.168.0.1", ip_dst= "192.168.0.255", mac_src=RandMAC(), port= 80):
-    ip = IP(ttl=64, src=ip_src, dst=ip_dst)
-    fakemac = Ether(src=mac_src)
-    ports = TCP(sport=port,dport=port)
-    return fakemac/ip/ports
+    pkt = IP(ttl=64, src=ip_src, dst=ip_dst) /\
+          Ether(src=mac_src) /\
+          TCP(sport=port,dport=port)
+    return pkt
 #mypacket = fake_packet()
 #sendp(mypacket, count=100)
 
-def dns_query(query, ip_dst="8.8.8.8"):
-    ip = IP(dst=ip_dst)
-    udp = UDP(dport=53)
-    dns = DNS(rd=1, qd=DNSQR(qname=query))
-    answer = sr1(ip/udp/dns, verbose=0)[DNS].summary()
-    return answer.split('"')[1]
+def dns_query(query, ip_dst="8.8.8.8", t_out=1):
+    pkt = IP(dst=ip_dst) /\
+          UDP(dport=53) /\
+          DNS(rd=1, qd=DNSQR(qname=query))
+    try:
+        answer = sr1(pkt, verbose=1, timeout=t_out)[DNS].summary()
+        ans = answer.split('"')[1]
+        if ans == f"b'{query}.'": return None
+        return ans
+    except TypeError:
+        return None
 #print(dns_query("google.com"))
 
 def mac_vendor(mac_address):
@@ -30,11 +35,11 @@ def mac_vendor(mac_address):
 #print(mac_vendor("00-1B-63-84-45-E6"))
 
 def arp_discover(dst="192.168.0.0/24"):
-    ether = Ether(dst="ff:ff:ff:ff:ff:ff")
-    arp = ARP(pdst=dst)
-    answers, no_answers = srp(ether/arp, timeout=5, verbose=1, inter=0.03)
-    for ans in answers:
-        pkt = ans.answer
+    pkt = Ether(dst="ff:ff:ff:ff:ff:ff") /\
+          ARP(pdst=dst)
+    answers, no_answers = srp(pkt, timeout=5, verbose=1, inter=0.03)
+    for i in answers:
+        pkt = i.answer
         mac = pkt[Ether].src
         ip = pkt[ARP].psrc
         fill = " " * (15 - len(ip))
