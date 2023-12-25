@@ -19,7 +19,7 @@ def dns_query(query, ip_dst="8.8.8.8", t_out=1):
           UDP(dport=53) /\
           DNS(rd=1, qd=DNSQR(qname=query))
     try:
-        answer = sr1(pkt, verbose=1, timeout=t_out)[DNS].summary()
+        answer = sr1(pkt, verbose=0, timeout=t_out)[DNS].summary()
         ans = answer.split('"')[1]
         if ans == f"b'{query}.'": return None
         return ans
