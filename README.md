@@ -30,3 +30,5 @@
     >Supports units from Bits to pebibytes
   - <b>`scapy-test`</b> : Some functions using <a href="https://github.com/secdev/scapy">Scapy</a>  
     >Includes: Fake packet creator, DNS query creator, MAC vendor lookup, ARP ping-sweep. Created for educational purposes only.
+  - <b>`scapy-sniffer`</b> : Sniffs packets and prints their information</a>  
+    >WIP. The goal is to display the packets in an organized and readable way, and also offer easy customizability. Created for educational purposes only.
