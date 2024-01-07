@@ -22,7 +22,8 @@ FILTERED_LAYERS = [
 
 # MISC CONFIG #
 
-MARGIN = "  "
+DEFAULT_BEFORE_HEADER = "  "
+DEFAULT_AFTER_HEADER = ": "
 
 ARP_TYPES = {
     1: "request",
@@ -66,6 +67,18 @@ def handle_pkt(pkt):
     if pkt.haslayer(DHCP): handle_DHCP(pkt)
     print()
 
+def layer_print(header, *args, **kwargs):
+    before_header = kwargs.get('before_header', DEFAULT_BEFORE_HEADER)
+    after_header = kwargs.get('after_header', DEFAULT_AFTER_HEADER)
+    if args:
+        print(f"{before_header}{header}{after_header}{args[0]}")
+        if len(args) == 1: return
+        before_data = " " * len(f"{before_header}{header}{after_header}")
+        for i in range(1, len(args)):
+            print(f"{before_data}{args[i]}")
+    if not args:
+        print(f"{before_header}{header}")
+
 
 
 def handle_Ether(pkt):
@@ -73,7 +86,7 @@ def handle_Ether(pkt):
     src = eth.src #Source Address
     dst = eth.dst #Destination Address
     t = hex(eth.type) #EtherType (https://en.wikipedia.org/wiki/EtherType#Values)
-    print(f"{MARGIN}Ether: src={src} dst={dst}  type={t}")
+    layer_print("Ether", f"src={src} dst={dst}  type={t}")
 
 def handle_ARP(pkt):
     arp = pkt[ARP]
@@ -86,7 +99,7 @@ def handle_ARP(pkt):
     ptype = arp.ptype #Protocol Type
     hwlen = arp.hwlen #Hardware Address length
     plen = arp.plen #Protocol Adress length
-    print(f"{MARGIN}ARP {op}: hwsrc={hwsrc} psrc={psrc}  hwdst={hwdst} pdst={pdst}")
+    layer_print(f"ARP {op}", f"hwsrc={hwsrc} psrc={psrc}  hwdst={hwdst} pdst={pdst}")
 
 
 def handle_IP(pkt):
@@ -103,7 +116,7 @@ def handle_IP(pkt):
     frag = ip.frag #Fragmented Packet Offset
     flags = ip.flags #IP Flags (DF, MF)
     fid = ip.id #Fragmentation Packet ID
-    print(f"{MARGIN}IP: src={src} dst={dst}  ttl={ttl} len={lenght} proto={proto}")
+    layer_print("IP", f"src={src} dst={dst}  ttl={ttl} len={lenght} proto={proto}")
 
 
 def handle_UDP(pkt):
@@ -112,7 +125,7 @@ def handle_UDP(pkt):
     dport = udp.dport #Destination Port
     lenght = udp.len #Packet length (in bytes)
     chksum = udp.chksum #Checksum
-    print(f"{MARGIN}UDP: sport={sport} dport={dport}  len={lenght}")
+    layer_print("UDP", f"sport={sport} dport={dport}  len={lenght}")
 
 
 def handle_BOOTP(pkt):
@@ -133,15 +146,14 @@ def handle_BOOTP(pkt):
     file = bootp.file #Boot File Name
     options = bootp.options #DHCP Options
     s_yiaddr = f" yiaddr={yiaddr}" if (yiaddr != "0.0.0.0") else ""
-    s_siaddr = f"siaddr={siaddr} " if (siaddr != "0.0.0.0") else ""
-    s_giaddr = f"giaddr={giaddr} " if (giaddr != "0.0.0.0") else ""
-    s_ciaddr = f"ciaddr={ciaddr} " if (ciaddr != "0.0.0.0") else ""
+    s_siaddr = f" siaddr={siaddr}" if (siaddr != "0.0.0.0") else ""
+    s_giaddr = f" giaddr={giaddr}" if (giaddr != "0.0.0.0") else ""
+    s_ciaddr = f" ciaddr={ciaddr}" if (ciaddr != "0.0.0.0") else ""
     s_chaddr = f"chaddr={chaddr}"
     s_flags = f"flags={flags} " if flags else ""
     s_sname = f"sname={sname.decode()} " if int.from_bytes(sname) else ""
-    s_spaces = " " * len(f"{MARGIN}BOOTP {op}:")
-    print(f"{MARGIN}BOOTP {op}:{s_yiaddr}{s_siaddr}{s_giaddr} {s_ciaddr}{s_chaddr}")
-    print(f"{s_spaces} {s_flags}{s_sname}xid={xid}")
+    layer_print(f"BOOTP {op}", f"{s_chaddr}{s_ciaddr} {s_yiaddr} {s_siaddr}{s_giaddr}" ,\
+                               f"{s_flags}{s_sname}xid={xid}")
 
 
 def handle_DHCP(pkt):
@@ -158,7 +170,7 @@ def handle_DHCP(pkt):
     vendor_class_id = get_opt("vendor_class_id") #Vendor Class Identifier (e.g 'android-dhcp-24')
     hostname = get_opt("hostname").decode() if get_opt("hostname") else None #Client Hostname
     s_hostname = f"hostname={hostname} " if hostname else ""
-    print(f"  DHCP {mtype}: req_ip={requested_addr} server={server_id}  {s_hostname}id={client_id}")
+    layer_print(f"DHCP {mtype}", f"req_ip={requested_addr} server={server_id}  {s_hostname}id={client_id}")
 
 
 
