@@ -7,8 +7,8 @@ from time import sleep
 
 
 def fake_packet(ip_src= "192.168.0.1", ip_dst= "192.168.0.255", mac_src=RandMAC(), port= 80):
-    pkt = IP(ttl=64, src=ip_src, dst=ip_dst) /\
-          Ether(src=mac_src) /\
+    pkt = Ether(src=mac_src) /\
+          IP(ttl=64, src=ip_src, dst=ip_dst) /\
           TCP(sport=port,dport=port)
     return pkt
 #mypacket = fake_packet()
@@ -46,3 +46,4 @@ def arp_discover(dst="192.168.0.0/24"):
         vendor = mac_vendor(mac)
         print(f"{mac}  {ip}{fill}  {vendor}")
 #arp_discover("192.168.0.0/24")
+#arp_discover(input("Select a network to scan (e.g 192.168.1.0/24) \n > "))
