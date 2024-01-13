@@ -34,16 +34,24 @@ def mac_vendor(mac_address):
     return response.content.decode()
 #print(mac_vendor("00-1B-63-84-45-E6"))
 
-def arp_discover(dst="192.168.0.0/24"):
+def arp_discover(dst="192.168.0.0/24", get_mac_vendors=True):
     pkt = Ether(dst="ff:ff:ff:ff:ff:ff") /\
           ARP(pdst=dst)
     answers, no_answers = srp(pkt, timeout=5, verbose=1, inter=0.03)
+    vendors_cache = {}
     for i in answers:
         pkt = i.answer
-        mac = pkt[Ether].src
         ip = pkt[ARP].psrc
+        if get_mac_vendors:
+            mac = pkt[Ether].src.split(":")
+            mac = f"{mac[0]}:{mac[1]}:{mac[2]}"
+            if vendors_cache.get(mac): vendor = vendors_cache.get(mac) # Get vendor from cache
+            else:
+                vendor = mac_vendor(mac) # Get vendor from API
+                vendors_cache[mac] = vendor
+        if not get_mac_vendors: vendor = ""
+        mac = pkt[Ether].src
         fill = " " * (15 - len(ip))
-        vendor = mac_vendor(mac)
         print(f"{mac}  {ip}{fill}  {vendor}")
 #arp_discover("192.168.0.0/24")
 #arp_discover(input("Select a network to scan (e.g 192.168.1.0/24) \n > "))
