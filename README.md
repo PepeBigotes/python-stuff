@@ -35,4 +35,4 @@
   - <b>`snake`</b> : Classic snake game</a>  
     >Text-Based, intended to be played inside a terminal. Handles input via 'keyboard' library.
   - <b>`keyboard-macro`</b> : Macro script made using the 'keyboard' library</a>  
-    >Somewhat unstable and buggy, use at your own risk. Subject to change.
+    >Unfinished proof-of-concept, use at your own risk. Subject to change.
