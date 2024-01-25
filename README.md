@@ -36,3 +36,5 @@
     >Text-Based, intended to be played inside a terminal. Handles input via 'keyboard' library.
   - <b>`keyboard-macro`</b> : Macro script made using the 'keyboard' library</a>  
     >Unfinished proof-of-concept, use at your own risk. Subject to change.
+  - <b>`arp-spoofer`</b> : Proof-of-concept ARP reply spammer</a>  
+    >Class got boring, scripting this was way more entertaining. Created for educational purposes only.
