@@ -34,6 +34,18 @@ def mac_vendor(mac_address):
     return response.content.decode()
 #print(mac_vendor("00-1B-63-84-45-E6"))
 
+def get_mac_from_ip(i_ip):
+    fake_mac = RandMAC()
+    network = '.'.join(i_ip.split('.')[0:3]) + '.0/24'
+    fake_ip = str(RandIP(network))
+    fake_ip = IP(src=fake_ip).src
+    pkt = Ether(src=fake_mac, dst='ff:ff:ff:ff:ff:ff') /\
+          ARP(op=1, pdst=i_ip, hwsrc=fake_mac, psrc=fake_ip)
+    ans = srp1(pkt, timeout=3, retry=-2, verbose=0)
+    if not ans: return None
+    return ans[ARP].hwsrc
+#print(get_mac_from_ip('192.168.1.1'))
+
 def arp_discover(dst="192.168.0.0/24", get_mac_vendors=True):
     pkt = Ether(dst="ff:ff:ff:ff:ff:ff") /\
           ARP(pdst=dst)
