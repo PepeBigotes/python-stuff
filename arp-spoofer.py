@@ -10,10 +10,10 @@ print("┴ ┴┴└─┴     └─┘┴  └─┘└─┘└  └─┘┴
 
 
 try:
-    mac = input("MAC to spoof (leave blank for host MAC):\n > ")
+    mac = input("MAC to spoof (leave blank for random MAC):\n > ")
     ip = input("IP to spoof (leave blank for default gateway):\n > ")
-    SRC_MAC = mac if mac else Ether().src
-    SRC_IP = ip if ip else conf.route.route('8.8.8.8')[2]
+    SRC_MAC = mac if mac else RandMAC()
+    SRC_IP = ip if ip else conf.route.route('0.0.0.0')[2]
     DST_MAC = 'ff:ff:ff:ff:ff:ff'
     DST_IP = '255.255.255.255'
 
