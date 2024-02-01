@@ -38,3 +38,5 @@
     >Unfinished proof-of-concept, use at your own risk. Subject to change.
   - <b>`arp-spoofer`</b> : Proof-of-concept ARP reply spammer</a>  
     >Class got boring, scripting this was way more entertaining. Created for educational purposes only.
+  - <b>`mitm`</b> : Man-in-the-Middle Attack</a>  
+    >Based on scapy. May have some flaws so use at your own risk. Created for educational purposes only.
