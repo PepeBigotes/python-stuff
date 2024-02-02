@@ -7,10 +7,11 @@ import time
 import socket
 
 os.system('cls' if os.name == 'nt' else 'clear')
-print("┌─┐┬┌┐┌┌─┐   ┌─┐┬ ┬┌─┐┌─┐┌─┐")
-print("├─┘│││││ ┬───└─┐│││├┤ ├┤ ├─┘")
-print("┴  ┴┘└┘└─┘   └─┘└┴┘└─┘└─┘┴  ")
-print()
+print("""\
+┌─┐┬┌┐┌┌─┐   ┌─┐┬ ┬┌─┐┌─┐┌─┐
+├─┘│││││ ┬───└─┐│││├┤ ├┤ ├─┘
+┴  ┴┘└┘└─┘   └─┘└┴┘└─┘└─┘┴ 
+""")
 
 print("Select a target IP (default is 192.168.0.1):")
 target = str(input(" > "))

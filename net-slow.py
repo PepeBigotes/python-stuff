@@ -7,15 +7,15 @@ import os
 import threading
 
 os.system('cls' if os.name == 'nt' else 'clear')
-print("┌┐┌┌─┐┌┬┐  ┌─┐┬  ┌─┐┬ ┬")
-print("│││├┤  │───└─┐│  │ ││││")
-print("┘└┘└─┘ ┴   └─┘┴─┘└─┘└┴┘")
-print()
+print("""\
+┌┐┌┌─┐┌┬┐  ┌─┐┬  ┌─┐┬ ┬
+│││├┤  │───└─┐│  │ ││││
+┘└┘└─┘ ┴   └─┘┴─┘└─┘└┴┘
+""")
 
 print("Select a target IP (default is 192.168.0.1):")
 target = str(input(" > "))
 if not target: target = "192.168.0.1"
-
 port = int(80)
 fake_ip = '44.197.175.168'
  

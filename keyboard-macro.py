@@ -10,9 +10,11 @@ STOP_HOTKEY = 'ctrl+alt+space'
 
 
 os.system('cls' if os.name=='nt' else 'clear')
-print( "┬┌─┌─┐┬ ┬┌┐ ┌─┐┌─┐┬─┐┌┬┐   ┌┬┐┌─┐┌─┐┬─┐┌─┐")
-print( "├┴┐├┤ └┬┘├┴┐│ │├─┤├┬┘ ││───│││├─┤│  ├┬┘│ │")
-print( "┴ ┴└─┘ ┴ └─┘└─┘┴ ┴┴└──┴┘   ┴ ┴┴ ┴└─┘┴└─└─┘\n")
+print("""\
+┬┌─┌─┐┬ ┬┌┐ ┌─┐┌─┐┬─┐┌┬┐   ┌┬┐┌─┐┌─┐┬─┐┌─┐
+├┴┐├┤ └┬┘├┴┐│ │├─┤├┬┘ ││───│││├─┤│  ├┬┘│ │
+┴ ┴└─┘ ┴ └─┘└─┘┴ ┴┴└──┴┘   ┴ ┴┴ ┴└─┘┴└─└─┘
+""")
 
 print(f"  'Record' hotkey: {RECORD_HOTKEY.upper()}")
 print(f"  'Play' hotkey: {PLAY_HOTKEY.upper()}")
