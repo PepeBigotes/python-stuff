@@ -40,3 +40,5 @@
     >Class got boring, scripting this was way more entertaining. Created for educational purposes only.
   - <b>`mitm`</b> : Man-in-the-Middle Attack</a>  
     >Based on scapy. Created for educational purposes only.
+  - <b>`spinner`</b> : Text-based looping loading spinner</a>  
+    >Useless, but it looks cool. Just 10 lines of code btw.
