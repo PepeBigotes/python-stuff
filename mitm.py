@@ -88,10 +88,14 @@ def handle_pkt(pkt):
         pkt[0].src = D_SRC_MAC
         pkt[0].dst = DST_MAC
 
-    if pkt[0].src == DST_MAC and pkt[0].dst == D_SRC_MAC:
+    elif pkt[0].src == DST_MAC and pkt[0].dst == D_SRC_MAC:
         global pkts_from_dst; pkts_from_dst += 1
         pkt[0].src = T_SRC_MAC
         pkt[0].dst = TRG_MAC
+
+    else: return
+
+    sendp(pkt, verbose=0)
 
 
 
