@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 #Created by PepeBigotes
 
+import os, ctypes
+try: is_admin = (os.getuid() == 0)
+except AttributeError: is_admin = (ctypes.windll.shell32.IsUserAnAdmin() != 0)
+if not is_admin:
+    print("[!] You need root/admin priviledges to run this script")
+    print("    Forgot to use sudo?")
+    exit()
+
 try: from scapy.all import *
 except ImportError:
     print("[!] You need to have Scapy installed to run this script")
