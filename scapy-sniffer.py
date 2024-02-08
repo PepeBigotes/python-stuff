@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 #Created by PepeBigotes
 
-from scapy.all import * #pip install scapy
+try: from scapy.all import *
+except ImportError:
+    print("[!] You need to have Scapy installed to run this script")
+    print("    Try 'pip3 install scapy' or 'sudo apt install python3-scapy'")
+    exit()
 from time import sleep
 n_pkts = 0
 
