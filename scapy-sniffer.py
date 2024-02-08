@@ -61,10 +61,10 @@ DHCP_TYPES = {
 # FUNCTIONS #
 
 def handle_pkt(pkt):
-    filter_pkt = True
+    ignore_pkt = True
     for layer in FILTERED_LAYERS:
-        if pkt.haslayer(layer): filter_pkt = False
-    if filter_pkt: return
+        if pkt.haslayer(layer): ignore_pkt = False; break
+    if ignore_pkt: return
     
     global n_pkts
     n_pkts += 1
