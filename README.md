@@ -42,3 +42,5 @@
     >Based on scapy. Created for educational purposes only.
   - <b>`spinner`</b> : Text-based looping loading spinner</a>  
     >Useless, but it looks cool. Just 10 lines of code btw.
+  - <b>`whos-pkting-me`</b> : Find out who is sending all those packets!</a>  
+    >Useful to detect who's jamming the network. Created for educational purposes only.
