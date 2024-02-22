@@ -44,3 +44,8 @@
     >Useless, but it looks cool. Just 10 lines of code btw.
   - <b>`whos-pkting-me`</b> : Find out who is sending all those packets!</a>  
     >Useful to detect who's jamming the network. Created for educational purposes only.
+  - <b>`udp-msg-sender`</b> : Send plaintext unencypted UDP messages</a>  
+    >I wanted to make a proper encrypted messaging protocol, but things got complicated, so I decided to upload the first unencrypted version here while I make the dedicated repo for this project.  
+    >Can be used to learn how unencrypted messages can be intercepted in the network.
+  - <b>`udp-msg-receiver`</b> : Receive plaintext unencrypted UDP messages</a>  
+    >Check 'udp-msg-sender' above for more info
