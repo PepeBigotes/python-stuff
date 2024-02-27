@@ -32,24 +32,24 @@
     >Supports units from Bits to pebibytes
   - <b>`scapy-test`</b> : Some functions using <a href="https://github.com/secdev/scapy">Scapy</a>  
     >Includes: Fake packet, DNS query, MAC vendor lookup, Get MAC from IP, ARP Discover.
-  - <b>`scapy-sniffer`</b> : Sniffs packets and prints their information</a>  
+  - <b>`scapy-sniffer`</b> : Sniffs packets and prints their information  
     >WIP. The goal is to display the packets in an organized and readable way, and also offer easy customizability.
-  - <b>`snake`</b> : Classic snake game</a>  
+  - <b>`snake`</b> : Classic snake game  
     >Text-Based, intended to be played inside a terminal. Handles input via 'keyboard' library.
-  - <b>`keyboard-macro`</b> : Macro script made using the 'keyboard' library</a>  
+  - <b>`keyboard-macro`</b> : Macro script made using the 'keyboard' library  
     >Unfinished proof-of-concept, use at your own risk. Subject to change.
-  - <b>`arp-spoofer`</b> : Proof-of-concept ARP reply spammer</a>  
+  - <b>`arp-spoofer`</b> : Proof-of-concept ARP reply spammer  
     >Class got boring, scripting this was way more entertaining.
-  - <b>`mitm`</b> : Man-in-the-Middle Attack</a>  
+  - <b>`mitm`</b> : Man-in-the-Middle Attack  
     >Based on scapy.
-  - <b>`spinner`</b> : Text-based looping loading spinner</a>  
+  - <b>`spinner`</b> : Text-based looping loading spinner  
     >Useless, but it looks cool. Just 10 lines of code btw.
-  - <b>`whos-pkting-me`</b> : Find out who is sending all those packets!</a>  
+  - <b>`whos-pkting-me`</b> : Find out who is sending all those packets!  
     >Useful to detect who's jamming the network.
-  - <b>`udp-msg-sender`</b> : Send plaintext unencypted UDP messages</a>  
+  - <b>`udp-msg-sender`</b> : Send plaintext unencypted UDP messages  
     >I wanted to make a proper encrypted messaging protocol, but things got complicated, so I decided to upload the first unencrypted version here while I make the dedicated repo for this project.  
     >Can be used to learn how unencrypted messages can be intercepted in the network.
-  - <b>`udp-msg-receiver`</b> : Receive plaintext unencrypted UDP messages</a>  
+  - <b>`udp-msg-receiver`</b> : Receive plaintext unencrypted UDP messages  
     >Check 'udp-msg-sender' above for more info
-  - <b>`counting-game`</b> : Counting game to learn the powers of 2</a>  
+  - <b>`counting-game`</b> : Counting game to learn the powers of 2  
     >My teachers are not aware of my severe addiction for making dumb scripts in class
