@@ -51,3 +51,5 @@
     >Can be used to learn how unencrypted messages can be intercepted in the network.
   - <b>`udp-msg-receiver`</b> : Receive plaintext unencrypted UDP messages</a>  
     >Check 'udp-msg-sender' above for more info
+  - <b>`counting-game`</b> : Counting game to learn the powers of 2</a>  
+    >My teachers are not aware of my severe addiction for making dumb scripts in class
