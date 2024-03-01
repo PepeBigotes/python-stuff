@@ -53,3 +53,5 @@
     >Check 'udp-msg-sender' above for more info
   - <b>`counting-game`</b> : Counting game to learn the powers of 2  
     >My teachers are not aware of my severe addiction for making dumb scripts in class
+  - <b>`pascals-triangle`</b> : Prints [Pascal's triangle](https://wikipedia.org/wiki/Pascal%27s_triangle) with X rows  
+    >One of my teachers is somewhat aware of this "addiction"
