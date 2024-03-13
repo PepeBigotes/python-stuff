@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
+#Created by PepeBigotes
+
 def print_pascals_triangle(x: int):
 
-    # Part 1: 2D list of int lists
+    # Part 1: 2D list (of int lists)
     ints_triangle = [[1],]
     while len(ints_triangle) < x:
         newrow = []
@@ -28,4 +31,8 @@ def print_pascals_triangle(x: int):
     for row in str_triangle: print(row)
 
 
-print_pascals_triangle(15)
+if __name__ == "__main__":
+    import sys
+    try: x = int(sys.argv[1])
+    except IndexError: x = 10
+    print_pascals_triangle(x)
