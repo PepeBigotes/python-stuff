@@ -55,3 +55,5 @@
     >My teachers are not aware of my severe addiction for making dumb scripts in class
   - <b>`pascals-triangle`</b> : Prints [Pascal's triangle](https://wikipedia.org/wiki/Pascal%27s_triangle) with X rows  
     >One of my teachers is somewhat aware of this "addiction"
+  - <b>`bj-card-counting`</b> : A game to practice [BlackJack card counting](https://wikipedia.org/wiki/Card_counting)
+    >"You are only 20 hands of blackjack away from being a millionaire". Please gamble responsibly tho, and only bet what you can afford to lose
