@@ -29,6 +29,7 @@ VALUES =  {
         
           ],
     0: [ #+++++++++++++++++++++
+
        ], #--------------------
     -0.5: [
         
@@ -50,6 +51,7 @@ VALUES =  {
 }
 
 value = 0
+
 
 
 def shuffled_deck():
@@ -86,6 +88,45 @@ def show_card(card: str):
 def ask_card(card: str):
     global value
 
+
+def do_single_cards():  # Singular cards
+    global deck
+    try:
+        for card in deck:
+            x = eval(input(f"{card} value: "))
+            if x == get_card_value(card): print("Correct!")
+            else: print(f"Nope, it's {get_card_value(card)}")
+        print("Well, you finished the deck")
+        exit()
+    except SyntaxError: print('\nI did not understand that "number" of yours, bye'); exit(1)
+    except KeyboardInterrupt: print("\nKeyboardInterrupt"); exit()
+
+def do_deals():  # Almost entire deals of cards (dealer + hands)
+    global deck
+    try:
+        hands_num = eval(input("\nHow many hands would you like to play at the same time? (1-6) "))
+        if not hands_num in range(1,6): print("Invalid hands number, minimun 1, maximum 6"); exit(1)
+        cards_per_deal = 2 + hands_num*2
+        print(f"Okay, dealing {hands_num} hands ({cards_per_deal} cards) at the same time...")
+
+        while True:
+            print(f" Cards left: {len(deck)}")
+            deal_cards(deck[:cards_per_deal])
+            deck = deck[cards_per_deal:]
+            input()
+            if randint(0,2) == 0:
+                ans = eval(input("What's the current value? "))
+                if ans == value: input("Correct!")
+                else: input(f"Nah, it's {value}")
+                print("----------------------------")
+            if len(deck) <= 30:
+                print("The deck has been shuffled")
+                deck = shuffled_deck
+    except SyntaxError: print('\nI did not understand that "number" of yours, bye'); exit(1)
+    except KeyboardInterrupt: print("\nKeyboardInterrupt"); exit()
+
+
+
 os.system('cls' if os.name=='nt' else 'clear')
 print(f"""{str.center("Welcome to PepeBigotes' BlackJack Card Counting Game", 80)}
 -------------------------------------------------------------------------------
@@ -106,24 +147,15 @@ for i in VALUES:
 
 deck = shuffled_deck()
 
-try:
-    hands_num = eval(input("\nHow many hands would you like to play at the same time? (1-6) "))
-    if not hands_num in range(1,6): print("Invalid hands number, minimun 1, maximum 6"); exit(1)
-    cards_per_deal = 2 + hands_num*2
-    print(f"Okay, dealing {hands_num} hands ({cards_per_deal} cards) at the same time...")
+print("""
+Modes:
+0. Only one card at a time
+1. Entire deals (with extra hands if you want)
+""")
 
-    while True:
-        print(f" Cards left: {len(deck)}")
-        deal_cards(deck[:cards_per_deal])
-        deck = deck[cards_per_deal:]
-        input()
-        if randint(0,2) == 0:
-            ans = eval(input("What's the current value? "))
-            if ans == value: input("Correct!")
-            else: input(f"Nah, it's {value}")
-            print("----------------------------")
-        if len(deck) <= 30:
-            print("The deck has been shuffled")
-            deck = shuffled_deck
-except SyntaxError: print('\nI did not understand that "number" of yours, bye'); exit(1)
-except KeyboardInterrupt: print("\nKeyboardInterrupt"); exit()
+try: mode = int(input("Select a mode:"))
+except ValueError: print("Just put a mode number, like '0' or '1'"); exit(1)
+if not mode in (0,1): print(f"Mode {mode} is not a valid mode, please put a number from 0 to 1"); exit(1)
+print(f"Mode {mode} selected")
+if mode == 0: do_single_cards()
+if mode == 1: do_deals()
