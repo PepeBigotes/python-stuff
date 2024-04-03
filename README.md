@@ -57,3 +57,5 @@
     >One of my teachers is somewhat aware of this "addiction"
   - <b>`bj-card-counting`</b> : A game to practice [BlackJack card counting](https://wikipedia.org/wiki/Card_counting)
     >"You are only 20 hands of blackjack away from being a millionaire". Please gamble responsibly tho, and only bet what you can afford to lose
+  - <b>`ctkinter-test`</b> : Trying out [Custom TKinter](https://github.com/TomSchimansky/CustomTkinter)
+    >Some text, some buttons, and not much more.
