@@ -88,6 +88,16 @@ print(f"[+] Got the contents of {URL}        ")
 soup = BeautifulSoup(CONTENT, BSOUP_PARSER)
 #print(soup.prettify())
 results = soup.find('div', attrs={'id':'resultados'})
+if "no está en el Diccionario" in results.get_text():
+    notfound = f"La palabra {INPUT} no está en el Diccionario."
+    related = "Las entradas que se muestran a continuación podrían estar relacionadas:"
+    itemlist = results.findAll('div', attrs={'class':'n1'})
+    os.system('cls' if os.name=='nt' else 'clear')
+    print('\n' + notfound)
+    if len(itemlist) > 0:
+        print('\n' + related)
+        for i in itemlist: print("  " + i.get_text())
+    exit()
 
 definitions = results.find_all(attrs={'class':'j'})
 synant = results.find(attrs={'class':'div-sin-ant'})
