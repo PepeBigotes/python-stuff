@@ -15,7 +15,7 @@ try:
 		try_input("  Press ENTER to install it (or CTRL+C to exit)")
 		os.system('pip3 install selenium')
 		try: from selenium import webdriver
-		except ImportError: print("\n[!] The selenium couldn't be installed"); exit(1)
+		except ImportError: print("\n[!] Selenium couldn't be installed"); exit(1)
 		try_input("\n  Dependencies installed, press ENTER to continue")
 except KeyboardInterrupt: print("\nKeyboardInterrupt"); exit()
 
@@ -71,9 +71,10 @@ sleep(.5)
 # SCRAP CONTENT
 soup = BeautifulSoup(CONTENT, BSOUP_PARSER)
 #print(soup.prettify())
+results = soup.find('div', attrs={'id':'resultados'})
 
-definitions = soup.find_all(attrs={'class':'j'})
-synant = soup.find(attrs={'class':'div-sin-ant'})
+definitions = results.find_all(attrs={'class':'j'})
+synant = results.find(attrs={'class':'div-sin-ant'})
 try: synonyms = synant.findChildren("ul", recursive=False)[0]
 except IndexError: synonyms = []
 try: antonyms = synant.findChildren("ul", recursive=False)[1]
@@ -82,7 +83,8 @@ except IndexError: antonyms = []
 
 
 # PRINTS
-print(INPUT)
+os.system('cls' if os.name=='nt' else 'clear')
+print('\n' + INPUT + '\n')
 print("DEFINITIONS:")
 for i in definitions: print("  " + i.get_text())
 print("SYNONYMS:")
