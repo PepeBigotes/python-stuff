@@ -63,3 +63,5 @@
     >Gets the definitions, synonyms and antonyms of a word.
     >Based on [selenium](https://www.selenium.dev/) and BeautifulSoup.  
     >I hope the Spanish goverment doesen't sue me.
+  - <b>`rae-scraper-v2`</b> : A better Web Scraper for [RAE](https://dle.rae.es/)
+    >Uses [pyppeteer](https://miyakogi.github.io/pyppeteer/) instead of selenium, making the process faster as it doesn't actually open a brower window.
