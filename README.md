@@ -59,3 +59,7 @@
     >"You are only 20 hands of blackjack away from being a millionaire". Please gamble responsibly tho, and only bet what you can afford to lose
   - <b>`ctkinter-test`</b> : Trying out [Custom TKinter](https://github.com/TomSchimansky/CustomTkinter)
     >Some text, some buttons, and not much more.
+  - <b>`rae-scraper`</b> : Web Scraper for [RAE](https://dle.rae.es/)
+    >Gets the definitions, synonyms and antonyms of a word.
+    >Based on [selenium](https://www.selenium.dev/) and BeautifulSoup.  
+    >I hope the Spanish goverment doesen't sue me.
