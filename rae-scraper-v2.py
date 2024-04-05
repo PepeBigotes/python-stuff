@@ -11,12 +11,12 @@ def try_input(msg) -> str:
 try:
 	try: from pyppeteer import launch
 	except ImportError:
-		print("[!] Module 'selenium' in not installed")
+		print("[!] Module 'pyppeteer' in not installed")
 		try_input("  Press ENTER to install it (or CTRL+C to exit)")
 		os.system('pip3 install pyppeteer')
 		try: from pyppeteer import launch
 		except ImportError: print("\n[!] Pyppeteer couldn't be installed"); exit(1)
-		try_input("\n  Dependencies installed, press ENTER to continue")
+		try_input("\n  Pyppeteer installed, press ENTER to continue")
 except KeyboardInterrupt: print("\nKeyboardInterrupt"); exit()
 
 import sys

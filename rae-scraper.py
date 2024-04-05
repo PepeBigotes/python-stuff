@@ -16,7 +16,7 @@ try:
 		os.system('pip3 install selenium')
 		try: from selenium import webdriver
 		except ImportError: print("\n[!] Selenium couldn't be installed"); exit(1)
-		try_input("\n  Dependencies installed, press ENTER to continue")
+		try_input("\n  Selenium installed, press ENTER to continue")
 except KeyboardInterrupt: print("\nKeyboardInterrupt"); exit()
 
 import sys

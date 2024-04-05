@@ -14,7 +14,7 @@
   - <b>`decimal_2_binary`</b> : Converts a decimal number to binary  
     >Our teacher was explaining how to convert decimal numbers to binary, I got bored and decided to make a script to do it for me instead.
   - <b>`randomness-test`</b> : A script to test the pseudorandomness of the 'random' module  
-    >Decided to leave it here because the results are interesting
+    >Decided to leave it here because the results are interesting.
   - <b>`binary-junk`</b> : Prints random binary numbers  
     >Once again I coded something useless instead of paying attention in class.
   - <b>`hex-junk`</b> : Prints random hexadecimal numbers  
@@ -29,7 +29,7 @@
   - <b>`alpha-byte-converter`</b> : Prompt that converts MiB to MB, GB to GiB, and so on.  
     >Why are we doing this manually in our IT class anyways?
   - <b>`byte-converter`</b> : A class to convert units of data storage easily  
-    >Supports units from Bits to pebibytes
+    >Supports units from Bits to pebibytes.
   - <b>`scapy-test`</b> : Some functions using <a href="https://github.com/secdev/scapy">Scapy</a>  
     >Includes: Fake packet, DNS query, MAC vendor lookup, Get MAC from IP, ARP Discover.
   - <b>`scapy-sniffer`</b> : Sniffs packets and prints their information  
@@ -50,13 +50,13 @@
     >I wanted to make a proper encrypted messaging protocol, but things got complicated, so I decided to upload the first unencrypted version here while I make the dedicated repo for this project.  
     >Can be used to learn how unencrypted messages can be intercepted in the network.
   - <b>`udp-msg-receiver`</b> : Receive plaintext unencrypted UDP messages  
-    >Check 'udp-msg-sender' above for more info
+    >Check 'udp-msg-sender' above for more info.
   - <b>`counting-game`</b> : Counting game to learn the powers of 2  
-    >My teachers are not aware of my severe addiction for making dumb scripts in class
+    >My teachers are not aware of my severe addiction for making dumb scripts in class.
   - <b>`pascals-triangle`</b> : Prints [Pascal's triangle](https://wikipedia.org/wiki/Pascal%27s_triangle) with X rows  
-    >One of my teachers is somewhat aware of this "addiction"
+    >One of my teachers is somewhat aware of this "addiction".
   - <b>`bj-card-counting`</b> : A game to practice [BlackJack card counting](https://wikipedia.org/wiki/Card_counting)
-    >"You are only 20 hands of blackjack away from being a millionaire". Please gamble responsibly tho, and only bet what you can afford to lose
+    >"You are only 20 hands of blackjack away from being a millionaire". Please gamble responsibly tho, and only bet what you can afford to lose.
   - <b>`ctkinter-test`</b> : Trying out [Custom TKinter](https://github.com/TomSchimansky/CustomTkinter)
     >Some text, some buttons, and not much more.
   - <b>`rae-scraper`</b> : Web Scraper for [RAE](https://dle.rae.es/)
