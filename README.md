@@ -65,3 +65,5 @@
     >I hope the Spanish goverment doesen't sue me.
   - <b>`rae-scraper-v2`</b> : A better Web Scraper for [RAE](https://dle.rae.es/)
     >Uses [pyppeteer](https://miyakogi.github.io/pyppeteer/) instead of selenium, making the process faster as it doesn't actually open a brower window.
+  - <b>`curses-test`</b> : Messing with the curses library
+    > Reject GUI, return to CLI
