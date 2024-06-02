@@ -67,3 +67,7 @@
     >Uses [pyppeteer](https://miyakogi.github.io/pyppeteer/) instead of selenium, making the process faster as it doesn't actually open a brower window.
   - <b>`curses-test`</b> : Messing with the curses library
     > Reject GUI, return to CLI
+  - <b>`prac-flsm`</b> : Practice calculating FLSM ips
+    > Calculators exist, yunno?
+  - <b>`prac-byte`</b> : Practice binary to decimal calculations
+    > I'm cooked
