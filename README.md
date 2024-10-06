@@ -71,3 +71,5 @@
     > Calculators exist, yunno?
   - <b>`prac-byte`</b> : Practice binary to decimal calculations
     > I'm cooked
+  - <b>`polybius-square-crypt`</b> : Simple polybius square encrypt-decrypt script
+    > Sorry teach, there is no way I'm doing this manually
