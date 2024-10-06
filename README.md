@@ -73,3 +73,5 @@
     > I'm cooked
   - <b>`polybius-square-crypt`</b> : Simple polybius square encrypt-decrypt script
     > Sorry teach, there is no way I'm doing this manually
+  - <b>`alberti-crypt`</b> : Simple alberti cipher encrypt-decrypt script
+    > Like ceasar cipher, but wrong
